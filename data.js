@@ -16,13 +16,13 @@
  */
 window.EOSC_ES_STATUS = {
   meta: {
-    updated: "2026-09-25",
+    updated: "2026-10-23",
     project: "EOSC-ES-Prep",
     grant: "25-EOSC-GRV-PREP-010",
     coordinator: "IACS (Instituto Aragonés de Ciencias de la Salud)",
     institutions: 22,
     contact: "",            // p. ej. "eosc-es@iacs.es" (vacío = no se muestra)
-    repo: ""                // URL del repositorio GitHub (vacío = no se muestra)
+    repo: "https://github.com/eosc-es/website"   // URL del repositorio (vacío = no se muestra)
   },
 
   /* Fases del camino hacia Nodo de la Federación. current: índice (0..n-1) */
@@ -30,25 +30,25 @@ window.EOSC_ES_STATUS = {
     current: 1,
     items: [
       { es: "Proyecto preparatorio (EOSC Gravity)", en: "Preparatory project (EOSC Gravity)", when: { es: "may 2026 –", en: "May 2026 –" } },
-      { es: "Project Charter y gobernanza", en: "Project Charter and governance", when: { es: "sep – oct 2026", en: "Sep – Oct 2026" } },
-      { es: "Solicitud de enrolment (3.ª ola)", en: "Enrolment application (3rd wave)", when: { es: "finales 2026 – inicio 2027", en: "late 2026 – early 2027" } },
-      { es: "Build-up del Nodo", en: "Node build-up", when: "M1 – M24" },
+      { es: "Project Charter y gobernanza", en: "Project Charter and governance", when: { es: "sep 2026 – inicio 2027", en: "Sep 2026 – early 2027" } },
+      { es: "Solicitud de enrolment (3.ª ola)", en: "Enrolment application (3rd wave)", when: "2027" },
+      { es: "Build-up del Nodo", en: "Node build-up", when: { es: "desde mediados de 2027 · M1 – M24", en: "from mid-2027 · M1 – M24" } },
       { es: "Nodo de la Federación EOSC", en: "EOSC Federation Node", when: "" }
     ]
   },
 
-  /* Entregables del proyecto preparatorio */
+  /* Entregables del proyecto preparatorio. pdf: ruta en docs/ (opcional) */
   deliverables: [
-    { id: "D1", title: { es: "Plan de proyecto", en: "Project Plan" }, status: "done",
+    { id: "D1", title: { es: "Plan de proyecto", en: "Project Plan" }, status: "done", pdf: "docs/D1_Project_Plan_EOSC-ES-Prep_v2.pdf", pdfLabel: "PDF v2",
       note: { es: "Entregado; versión revisada (v2) reenviada.", en: "Submitted; revised version (v2) re-submitted." } },
-    { id: "D2", title: { es: "Project Charter del Nodo", en: "Node Project Charter" }, status: "review", due: "M5 · 09/2026",
-      note: { es: "Aprobado con recomendaciones; revisión R1 preparada con los cambios solicitados y la reducción de entregables (5) e hitos (8) del build-up.", en: "Approved with recommendations; R1 revision prepared addressing the reviewers' comments, with build-up deliverables reduced to 5 and milestones to 8." } },
-    { id: "D3", title: { es: "Plan y presentación del showcase event", en: "Showcase event plan and presentation" }, status: "review",
-      note: { es: "Reenvío R1 (16 diapositivas) previsto el 28/09/2026.", en: "R1 re-submission (16 slides) due 28/09/2026." } },
+    { id: "D2", title: { es: "Project Charter del Nodo", en: "Node Project Charter" }, status: "review", due: "M5 · 09/2026", pdf: "docs/D2_Project_Charter_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
+      note: { es: "Aprobado con recomendaciones; versión R1 (28/09/2026) con 5 entregables y 8 hitos del build-up.", en: "Approved with recommendations; R1 version (28/09/2026) with 5 build-up deliverables and 8 milestones." } },
+    { id: "D3", title: { es: "Plan y presentación del showcase event", en: "Showcase event plan and presentation" }, status: "review", pdf: "docs/D3_Showcase_Event_Plan_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
+      note: { es: "Versión R1 (28/09/2026). El caso de uso ejemplar del showcase se elige por votación de las instituciones.", en: "R1 version (28/09/2026). The showcase's exemplary use case is chosen by a vote of the institutions." } },
     { id: "D4", title: { es: "Matriz EOSC Academy", en: "EOSC Academy Matrix" }, status: "progress",
-      note: { es: "En preparación.", en: "In preparation." } },
+      note: { es: "Borrador v0.1 (20/10/2026).", en: "Draft v0.1 (20/10/2026)." } },
     { id: "D5", title: { es: "Informe de casos de uso", en: "Use Case Report" }, status: "progress",
-      note: { es: "En preparación.", en: "In preparation." } }
+      note: { es: "Borradores v0.1 de los cuatro casos de uso.", en: "Draft v0.1 of the four use cases." } }
   ],
 
   /* Hitos y eventos del proyecto preparatorio (orden cronológico) */
@@ -57,8 +57,12 @@ window.EOSC_ES_STATUS = {
     { date: "2026-06-29", status: "done", title: { es: "Primera reunión presencial, CSIC Madrid, con observadores de los Nodos alemán (NFDI) y checo (EOSC-CZ)", en: "First in-person meeting, CSIC Madrid, with observers from the German (NFDI) and Czech (EOSC-CZ) Nodes" } },
     { date: "2026-07-23", status: "done", title: { es: "Reunión online del consorcio", en: "Online consortium meeting" } },
     { date: "2026-09", status: "done", title: { es: "Project Charter (D2) entregado", en: "Project Charter (D2) submitted" } },
-    { date: "2026-10-02", status: "planned", title: { es: "Encuentro tripartito EOSC España en Zaragoza (EOSC-A, Comisión Europea, EOSC Steering Board, COS-Gob, Ministerio de Ciencia, Innovación y Universidades)", en: "Spanish EOSC tripartite event in Zaragoza (EOSC-A, European Commission, EOSC Steering Board, COS-Gob, Ministry of Science, Innovation and Universities)" } },
-    { date: "2026-11", status: "planned", title: { es: "Showcase event", en: "Showcase event" } }
+    { date: "2026-09-28", status: "done", title: { es: "Versiones R1 del Project Charter (D2) y del plan del showcase (D3)", en: "R1 versions of the Project Charter (D2) and the showcase plan (D3)" } },
+    { date: "2026-10-02", status: "done", title: { es: "Encuentro tripartito EOSC España en Zaragoza, con EOSC-A, la Comisión Europea y la delegada española en el EOSC Steering Board: gobernanza en tres pasos (MoU ligero, anexo técnico en la propuesta de nodo, acuerdo tipo JRU) y AAI como proxy de nodo sobre SIR/eduGAIN", en: "Spanish EOSC tripartite event in Zaragoza, with EOSC-A, the European Commission and the Spanish EOSC Steering Board delegate: three-step governance (light MoU, technical annex in the Node proposal, JRU-type agreement) and Node-level AAI proxy on SIR/eduGAIN" } },
+    { date: "2026-10", status: "progress", title: { es: "Votación del caso de uso ejemplar entre las instituciones", en: "Vote on the exemplary use case among the institutions" }, link: "votacion.html" },
+    { date: "2026-11", status: "planned", title: { es: "Showcase event (online), con el caso de uso elegido", en: "Showcase event (online), with the chosen use case" } },
+    { date: "2026-12", status: "planned", title: { es: "Reunión tripartita en Dublín: criterios de la 3.ª ola", en: "Tripartite meeting in Dublin: third-wave criteria" } },
+    { date: "2027-03-09", status: "planned", title: { es: "Apertura de la COFUND HORIZON-INFRA-2027-01-EOSC-01 (cierre 15/06/2027)", en: "HORIZON-INFRA-2027-01-EOSC-01 COFUND opens (closes 15/06/2027)" } }
   ],
 
   /* Criterios de enrolment (2.ª ola; se asumen para la 3.ª) */
@@ -66,8 +70,8 @@ window.EOSC_ES_STATUS = {
     { status: "done", title: { es: "Recursos con TRL > 6", en: "Resources at TRL > 6" }, note: { es: "Los 12 recursos de la cartera inicial declaran TRL ≥ 7.", en: "All 12 resources of the initial portfolio declare TRL ≥ 7." } },
     { status: "done", title: { es: "Al menos un caso de uso multi-Nodo", en: "At least one multi-Node use case" }, note: { es: "Cuatro casos, todos inter-node.", en: "Four use cases, all inter-node." } },
     { status: "done", title: { es: "Compromiso de firma del MoU de la Federación", en: "Commitment to sign the Federation MoU" }, note: { es: "Declarado en el Project Charter.", en: "Stated in the Project Charter." } },
-    { status: "progress", title: { es: "Acuerdo de gobernanza del Nodo", en: "Node governance agreement" }, note: { es: "Borrador de convenio de colaboración disponible (ES-D1).", en: "Draft collaboration agreement available (ES-D1)." } },
-    { status: "pending", title: { es: "Entidad representante del Nodo", en: "Node representing entity" }, note: { es: "A acordar en el consorcio y con los actores nacionales (tripartito 2/10).", en: "To be agreed within the consortium and with national actors (tripartite, 2 Oct)." } },
+    { status: "progress", title: { es: "Acuerdo de gobernanza del Nodo", en: "Node governance agreement" }, note: { es: "Acordado en el tripartito: MoU ligero inmediato (en redacción), anexo técnico en la propuesta de nodo y acuerdo tipo JRU tras el Framework Agreement de la Federación.", en: "Agreed at the tripartite: immediate light MoU (being drafted), technical annex in the Node proposal and a JRU-type agreement after the Federation Framework Agreement." } },
+    { status: "pending", title: { es: "Entidad representante del Nodo", en: "Node representing entity" }, note: { es: "Requiere el mandato del Ministerio a una institución representante; IACS coordina de forma interina.", en: "Requires a Ministry mandate to a representing institution; IACS acts as interim coordinator." } },
     { status: "pending", title: { es: "Cinco roles nombrados (coordinación, operaciones, ciberseguridad, legal, comunicación)", en: "Five named roles (coordinator, operations, cybersecurity, legal, communications)" }, note: { es: "Todos por designar; se nombrarán antes de ES-MS0.", en: "All still TBD; to be named ahead of ES-MS0." } },
     { status: "pending", title: { es: "Endoso de la autoridad nacional competente", en: "Endorsement by the competent national authority" }, note: { es: "Vía Ministerio de Ciencia, Innovación y Universidades y COS-Gob, antes de la solicitud.", en: "Through the Ministry of Science, Innovation and Universities and COS-Gob, before the application." } }
   ],
@@ -81,21 +85,21 @@ window.EOSC_ES_STATUS = {
     { role: { es: "Responsable de comunicación", en: "Communications Officer" }, name: "", status: "pending" }
   ],
   rolesNote: {
-    es: "Todos los roles del Nodo y los responsables técnicos de cada Federating Capability están por designar. La designación es una decisión de gobernanza del consorcio, que se abre en el encuentro tripartito del 2 de octubre de 2026 en Zaragoza; todos se nombrarán antes de la solicitud de enrolment (ES-MS0).",
-    en: "All Node roles and the technical owners of each Federating Capability are still to be designated. Designation is a governance decision of the consortium, opened at the tripartite event in Zaragoza on 2 October 2026; all will be named ahead of the enrolment application (ES-MS0)."
+    es: "Todos los roles del Nodo y los responsables técnicos de cada Federating Capability están por designar. En el encuentro tripartito del 2 de octubre de 2026 se presentaron candidaturas como propuesta de trabajo, sin compromisos formales; se cerrarán antes de la solicitud de nodo, a comienzos de 2027, con titular y suplente para cada rol.",
+    en: "All Node roles and the technical owners of each Federating Capability are still to be designated. Candidates were presented at the tripartite event on 2 October 2026 as a working proposal, with no formal commitments; they will be closed before the Node application in early 2027, with a holder and a deputy for each role."
   },
 
   /* Federating Capabilities */
   fcs: [
-    { id: "FC-1", name: { es: "AAI", en: "AAI" }, level: "mandatory", status: "planned", owner: "", inst: "RedIRIS (Red.es)", target: "M6 · ES-MS2",
-      basis: { es: "RedIRIS SIR, integrado en eduGAIN.", en: "RedIRIS SIR, integrated with eduGAIN." } },
+    { id: "FC-1", name: { es: "AAI", en: "AAI" }, level: "mandatory", status: "planned", owner: "", inst: { es: "RedIRIS (Red.es) · UPV (propuesta)", en: "RedIRIS (Red.es) · UPV (proposed)" }, target: "M6 · ES-MS2",
+      basis: { es: "Proxy SSO a nivel de nodo sobre RedIRIS SIR y eduGAIN, conectado con MyAccessID (acordado el 2/10/2026).", en: "Node-level SSO proxy on RedIRIS SIR and eduGAIN, connected to MyAccessID (agreed 2/10/2026)." } },
     { id: "FC-2", name: { es: "Catálogos y registro de recursos", en: "Resource Catalogues and Registry" }, level: "mandatory", status: "planned", owner: "", inst: "RedIRIS / FECYT", target: "M6 · ES-MS2",
       basis: { es: "RECOLECTA, datos.gob.es, PLATICA (CARREDI); vía OpenAIRE.", en: "RECOLECTA, datos.gob.es, PLATICA (CARREDI); via OpenAIRE." } },
     { id: "FC-3", name: { es: "Helpdesk", en: "Helpdesk" }, level: "mandatory2026", status: "planned", owner: "", inst: "UPV / IACS / UJAEN", target: "M12 · ES-MS4",
       basis: { es: "Zammad con intercambio de tickets entre Nodos.", en: "Zammad with inter-node ticket exchange." } },
-    { id: "FC-4", name: { es: "Monitorización", en: "Service Monitoring" }, level: "mandatory2026", status: "planned", owner: "", inst: "", target: "M12 · ES-MS4",
+    { id: "FC-4", name: { es: "Monitorización", en: "Service Monitoring" }, level: "mandatory2026", status: "planned", owner: "", inst: { es: "CESGA · SCAYLE (propuesta)", en: "CESGA · SCAYLE (proposed)" }, target: "M12 · ES-MS4",
       basis: { es: "ARGO + exportadores Prometheus/OpenMetrics.", en: "ARGO + Prometheus/OpenMetrics exporters." } },
-    { id: "FC-5", name: { es: "Sistema de gestión de servicios", en: "Service Management System" }, level: "mandatory2026", status: "planned", owner: "", inst: "", target: "M15 · ES-MS5",
+    { id: "FC-5", name: { es: "Sistema de gestión de servicios", en: "Service Management System" }, level: "mandatory2026", status: "planned", owner: "", inst: { es: "BSC-CNS (propuesta)", en: "BSC-CNS (proposed)" }, target: "M15 · ES-MS5",
       basis: { es: "SMS basado en FitSM.", en: "FitSM-based SMS." } },
     { id: "FC-6", name: { es: "Contabilidad de servicios", en: "Service Accounting" }, level: "recommended", status: "planned", owner: "", inst: "", target: "Build-up",
       basis: { es: "Demostrador sobre plataformas de IA e inferencia.", en: "Demonstrator on AI and inference platforms." } },
@@ -105,15 +109,25 @@ window.EOSC_ES_STATUS = {
       basis: { es: "Candidato: Application Workload Manager (UPV).", en: "Candidate: Application Workload Manager (UPV)." } }
   ],
 
+  /* Votación del caso de uso ejemplar (página votacion.html) */
+  vote: {
+    open: true,
+    url: "https://script.google.com/macros/s/AKfycbzk_xAX_SJjcMPiP818g48CPK_PatETmxT6elYKXcAUryeUU4Ow5Dv_27KAHU7DBzlg_Q/exec",
+    text: {
+      es: "Las instituciones eligen por votación el caso de uso ejemplar que se presentará en el showcase de noviembre. Un voto por institución, ordenando los cuatro casos.",
+      en: "The institutions vote on the exemplary use case to be presented at the November showcase. One vote per institution, ranking the four cases."
+    }
+  },
+
   /* Casos de uso del build-up */
   usecases: [
     { id: "ES-UC1", title: { es: "EHDS: uso secundario de datos de salud, alcance One Health", en: "EHDS: secondary use of health data, One Health scope" },
       lead: "IACS", status: "planned", target: "M18 · ES-MS6", rehearsal: "M15 · ES-MS5",
-      nodes: "Life Sciences Connect (EOSC ENTRUST); BBMRI-ERIC; EOSC EU Node",
+      nodes: "Life Sciences Connect (EOSC ENTRUST); BBMRI-ERIC; EGI; EOSC EU Node",
       dataspace: { es: "Espacio Europeo de Datos Sanitarios", en: "European Health Data Space" } },
     { id: "ES-UC2", title: { es: "Ocean Health", en: "Ocean Health" },
       lead: "CSIC · UMU", status: "planned", target: "M18 · ES-MS6",
-      nodes: "European Digital Twin of the Ocean Node; Blue-Cloud 2026",
+      nodes: { es: "European Digital Twin of the Ocean Node; Blue-Cloud 2026; integración prevista con Data Terra y el Nodo italiano", en: "European Digital Twin of the Ocean Node; Blue-Cloud 2026; planned integration with Data Terra and the Italian Node" },
       dataspace: { es: "Green Deal, componente marino", en: "Green Deal, marine component" } },
     { id: "ES-UC3", title: { es: "Euclid DR1", en: "Euclid DR1" },
       lead: "PIC · CIEMAT", status: "planned", target: "M12 · ES-MS4", rehearsal: "M9 · ES-MS3",
