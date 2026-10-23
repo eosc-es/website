@@ -41,9 +41,9 @@ window.EOSC_ES_STATUS = {
   deliverables: [
     { id: "D1", title: { es: "Plan de proyecto", en: "Project Plan" }, status: "done", pdf: "docs/D1_Project_Plan_EOSC-ES-Prep_v2.pdf", pdfLabel: "PDF v2",
       note: { es: "Entregado; versión revisada (v2) reenviada.", en: "Submitted; revised version (v2) re-submitted." } },
-    { id: "D2", title: { es: "Project Charter del Nodo", en: "Node Project Charter" }, status: "review", due: "M5 · 09/2026", pdf: "docs/D2_Project_Charter_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
+    { id: "D2", title: { es: "Project Charter del Nodo", en: "Node Project Charter" }, status: "done", due: "M5 · 09/2026", pdf: "docs/D2_Project_Charter_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
       note: { es: "Aprobado con recomendaciones; versión R1 (28/09/2026) con 5 entregables y 8 hitos del build-up.", en: "Approved with recommendations; R1 version (28/09/2026) with 5 build-up deliverables and 8 milestones." } },
-    { id: "D3", title: { es: "Plan y presentación del showcase event", en: "Showcase event plan and presentation" }, status: "review", pdf: "docs/D3_Showcase_Event_Plan_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
+    { id: "D3", title: { es: "Plan y presentación del showcase event", en: "Showcase event plan and presentation" }, status: "done", pdf: "docs/D3_Showcase_Event_Plan_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
       note: { es: "Versión R1 (28/09/2026). El caso de uso ejemplar del showcase se elige por votación de las instituciones.", en: "R1 version (28/09/2026). The showcase's exemplary use case is chosen by a vote of the institutions." } },
     { id: "D4", title: { es: "Matriz EOSC Academy", en: "EOSC Academy Matrix" }, status: "progress",
       note: { es: "Borrador v0.1 (20/10/2026).", en: "Draft v0.1 (20/10/2026)." } },
