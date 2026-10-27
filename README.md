@@ -23,7 +23,7 @@ Solo hay que editar `data.js` (se puede hacer desde la interfaz web de GitHub):
 - `phases.current`: fase activa del camino hacia Nodo (0 = proyecto preparatorio … 4 = Nodo de la Federación).
 - `roles`: al designar a una persona, rellenar `name` y cambiar `status` a `done`; el contador «roles designados» se actualiza solo. Lo mismo con `owner` en cada Federating Capability.
 - `deliverables[].pdf`: ruta al PDF dentro de `docs/`; si se rellena, aparece el enlace «PDF» junto al entregable.
-- `vote.open`: `true` muestra el aviso y el enlace a la votación; `false` los oculta y `votacion.html` indica que está cerrada. `vote.url` es la URL `/exec` de la aplicación web de Apps Script.
+- `vote.open`: `true` muestra el aviso y el enlace a la votación; `false` muestra en el inicio el caso elegido y el enlace a los resultados, y `votacion.html` presenta la tabla de `vote.results` (votos por posición y puntos Borda) en lugar del formulario. `vote.url` es la URL `/exec` de la aplicación web de Apps Script (vacía una vez retirada).
 - `meta.contact` y `meta.repo`: si se rellenan, aparecen en el pie.
 
 Los contadores del resumen (entregables cerrados, criterios cumplidos, hitos completados) se calculan solos a partir de los estados.
@@ -39,6 +39,8 @@ Project Charter R1 con reducción de entregables e hitos (`..._R1.D_and_M_reduct
 Tipografías y colores del *Corporate Design Manual* de la EOSC Association (v.1, 2022-09): Quicksand Light para titulares, Roboto Light para texto (#646363), Lively Green #008691 como color principal, Mild Pink #ff5b7f como color de señal, Light Grey #e4e4e3 y Warm Black #040204. Las fuentes se sirven desde `assets/fonts/` (sin llamadas a Google Fonts); sus licencias están en la misma carpeta. El logotipo es `assets/eosc-es-prep-logo.png`, recortado del original EOSC-ES-Prep.
 
 ## Votación
+
+Cerrada el 27/10/2026 (23 instituciones). La página ya no incrusta la aplicación; solo muestra resultados agregados, sin nombres ni correos.
 
 `votacion.html` incrusta en un `iframe` la aplicación web de Google Apps Script (`[EOSC-ES-Prep] Votación Casos de Uso`). Funciona porque `doGet()` usa `setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL)`; si se crea una implementación nueva con otra URL, hay que actualizar `vote.url` en `data.js`. Debajo del marco hay un enlace para abrir el formulario en una pestaña nueva por si el navegador bloquea el contenido incrustado.
 

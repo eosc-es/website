@@ -120,7 +120,7 @@
       prepLead:"Subvención preparatoria de EOSC Gravity para elaborar el Project Charter del Nodo y preparar la solicitud de enrolment.",
       deliverables:"Entregables",timeline:"Reuniones y eventos",next:"próximo",
       enrolTitle:"Preparación para el enrolment",enrolLead:"Criterios formales exigidos a un Nodo candidato y su estado actual.",
-      voteBtn:"Ir a la votación",voteNav:"Votación",rolesTitle:"Roles del Nodo",rolesLead:"Los cinco roles que la EOSC Federation exige a cada Nodo.",tbd:"Por designar",
+      voteBtn:"Ir a la votación",voteNav:"Votación",voteResBtn:"Ver resultados",voteResNav:"Resultados de la votación",voteWin:"Votación cerrada. Caso de uso elegido: ",rolesTitle:"Roles del Nodo",rolesLead:"Los cinco roles que la EOSC Federation exige a cada Nodo.",tbd:"Por designar",
       fcTitle:"Federating Capabilities",fcLead:"Capacidades que el Nodo implementa para integrarse en la Federación. Plazos en meses desde el inicio del build-up (M1).",
       mandatory:"Obligatoria",mandatory2026:"Obligatoria desde 2026",recommended:"Recomendada",owner:"Responsable técnico",inst:"Institución",deadline:"Plazo",
       ucTitle:"Casos de uso",ucLead:"Cuatro casos inter-Nodo comprometidos para el build-up; dos se demuestran en M12 y dos en M18.",
@@ -138,7 +138,7 @@
       prepLead:"EOSC Gravity preparatory grant to draft the Node Project Charter and prepare the enrolment application.",
       deliverables:"Deliverables",timeline:"Meetings and events",next:"next",
       enrolTitle:"Enrolment readiness",enrolLead:"Formal criteria required from a candidate Node and their current status.",
-      voteBtn:"Go to the vote",voteNav:"Vote",rolesTitle:"Node roles",rolesLead:"The five roles the EOSC Federation requires from every Node.",tbd:"TBD",
+      voteBtn:"Go to the vote",voteNav:"Vote",voteResBtn:"See the results",voteResNav:"Vote results",voteWin:"Vote closed. Chosen use case: ",rolesTitle:"Node roles",rolesLead:"The five roles the EOSC Federation requires from every Node.",tbd:"TBD",
       fcTitle:"Federating Capabilities",fcLead:"Capabilities the Node implements to integrate with the Federation. Deadlines in months from the start of the build-up (M1).",
       mandatory:"Mandatory",mandatory2026:"Mandatory from 2026",recommended:"Recommended",owner:"Technical owner",inst:"Institution",deadline:"Target",
       ucTitle:"Use cases",ucLead:"Four inter-Node use cases committed for the build-up; two are demonstrated at M12 and two at M18.",
@@ -174,8 +174,13 @@
     document.querySelectorAll("[data-i18n]").forEach(function(el){ el.textContent=t(el.getAttribute("data-i18n")); });
     document.querySelectorAll("[data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-lang")===lang); });
     document.getElementById("updated").textContent = t("updated")+fmtDate(D.meta.updated);
-    document.getElementById("toc").innerHTML = SECTIONS.map(function(s){return '<a href="#'+s[0]+'">'+esc(t(s[1]))+'</a>';}).join("") + (D.vote&&D.vote.open?'<a class="ext" href="votacion.html">'+esc(t("voteNav"))+'</a>':'');
-    var vb=document.getElementById("votebox"); vb.hidden=!(D.vote&&D.vote.open); if(D.vote) document.getElementById("votetext").textContent=tx(D.vote.text);
+    document.getElementById("toc").innerHTML = SECTIONS.map(function(s){return '<a href="#'+s[0]+'">'+esc(t(s[1]))+'</a>';}).join("") + (D.vote?'<a class="ext" href="votacion.html">'+esc(t(D.vote.open?"voteNav":"voteResNav"))+'</a>':'');
+    var vb=document.getElementById("votebox"); vb.hidden=!D.vote;
+    if(D.vote){
+      var R=D.vote.results, w=R&&D.usecases.filter(function(u){return u.id===R.winner;})[0];
+      document.getElementById("votetext").textContent = (!D.vote.open&&w) ? t("voteWin")+w.id+" · "+tx(w.title)+"." : tx(D.vote.text);
+      vb.querySelector(".btn").textContent = t(D.vote.open?"voteBtn":"voteResBtn");
+    }
 
     var cur=D.phases.current;
     document.getElementById("steps").innerHTML = D.phases.items.map(function(p,i){

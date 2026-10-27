@@ -16,7 +16,7 @@
  */
 window.EOSC_ES_STATUS = {
   meta: {
-    updated: "2026-10-23",
+    updated: "2026-10-27",
     project: "EOSC-ES-Prep",
     grant: "25-EOSC-GRV-PREP-010",
     coordinator: "IACS (Instituto Aragonés de Ciencias de la Salud)",
@@ -44,7 +44,7 @@ window.EOSC_ES_STATUS = {
     { id: "D2", title: { es: "Project Charter del Nodo", en: "Node Project Charter" }, status: "done", due: "M5 · 09/2026", pdf: "docs/D2_Project_Charter_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
       note: { es: "Aprobado con recomendaciones; versión R1 (28/09/2026) con 5 entregables y 8 hitos del build-up.", en: "Approved with recommendations; R1 version (28/09/2026) with 5 build-up deliverables and 8 milestones." } },
     { id: "D3", title: { es: "Plan y presentación del showcase event", en: "Showcase event plan and presentation" }, status: "done", pdf: "docs/D3_Showcase_Event_Plan_EOSC-ES-Prep_R1.pdf", pdfLabel: "PDF R1",
-      note: { es: "Versión R1 (28/09/2026). El caso de uso ejemplar del showcase se elige por votación de las instituciones.", en: "R1 version (28/09/2026). The showcase's exemplary use case is chosen by a vote of the institutions." } },
+      note: { es: "Versión R1 (28/09/2026). Caso de uso ejemplar del showcase elegido por votación de las instituciones: ES-UC1.", en: "R1 version (28/09/2026). Exemplary use case of the showcase chosen by a vote of the institutions: ES-UC1." } },
     { id: "D4", title: { es: "Matriz EOSC Academy", en: "EOSC Academy Matrix" }, status: "progress",
       note: { es: "Borrador v0.1 (20/10/2026).", en: "Draft v0.1 (20/10/2026)." } },
     { id: "D5", title: { es: "Informe de casos de uso", en: "Use Case Report" }, status: "progress",
@@ -59,7 +59,7 @@ window.EOSC_ES_STATUS = {
     { date: "2026-09", status: "done", title: { es: "Project Charter (D2) entregado", en: "Project Charter (D2) submitted" } },
     { date: "2026-09-28", status: "done", title: { es: "Versiones R1 del Project Charter (D2) y del plan del showcase (D3)", en: "R1 versions of the Project Charter (D2) and the showcase plan (D3)" } },
     { date: "2026-10-02", status: "done", title: { es: "Encuentro tripartito EOSC España en Zaragoza, con EOSC-A, la Comisión Europea y la delegada española en el EOSC Steering Board: gobernanza en tres pasos (MoU ligero, anexo técnico en la propuesta de nodo, acuerdo tipo JRU) y AAI como proxy de nodo sobre SIR/eduGAIN", en: "Spanish EOSC tripartite event in Zaragoza, with EOSC-A, the European Commission and the Spanish EOSC Steering Board delegate: three-step governance (light MoU, technical annex in the Node proposal, JRU-type agreement) and Node-level AAI proxy on SIR/eduGAIN" } },
-    { date: "2026-10", status: "progress", title: { es: "Votación del caso de uso ejemplar entre las instituciones", en: "Vote on the exemplary use case among the institutions" }, link: "votacion.html" },
+    { date: "2026-10-27", status: "done", title: { es: "Votación del caso de uso ejemplar entre las instituciones: elegido ES-UC1 (EHDS, One Health)", en: "Vote on the exemplary use case among the institutions: ES-UC1 (EHDS, One Health) chosen" }, link: "votacion.html" },
     { date: "2026-11", status: "planned", title: { es: "Showcase event (online), con el caso de uso elegido", en: "Showcase event (online), with the chosen use case" } },
     { date: "2026-12", status: "planned", title: { es: "Reunión tripartita en Dublín: criterios de la 3.ª ola", en: "Tripartite meeting in Dublin: third-wave criteria" } },
     { date: "2027-03-09", status: "planned", title: { es: "Apertura de la COFUND HORIZON-INFRA-2027-01-EOSC-01 (cierre 15/06/2027)", en: "HORIZON-INFRA-2027-01-EOSC-01 COFUND opens (closes 15/06/2027)" } }
@@ -111,11 +111,28 @@ window.EOSC_ES_STATUS = {
 
   /* Votación del caso de uso ejemplar (página votacion.html) */
   vote: {
-    open: true,
-    url: "https://script.google.com/macros/s/AKfycbzk_xAX_SJjcMPiP818g48CPK_PatETmxT6elYKXcAUryeUU4Ow5Dv_27KAHU7DBzlg_Q/exec",
+    open: false,            // true = votación abierta; false = cerrada (se muestran los resultados)
+    url: "",                // URL /exec de la aplicación de Apps Script (vacía: aplicación retirada)
+    closed: "2026-10-27",
     text: {
-      es: "Las instituciones eligen por votación el caso de uso ejemplar que se presentará en el showcase de noviembre. Un voto por institución, ordenando los cuatro casos.",
-      en: "The institutions vote on the exemplary use case to be presented at the November showcase. One vote per institution, ranking the four cases."
+      es: "Las instituciones eligieron por votación el caso de uso ejemplar que se presentará en el showcase de noviembre. Un voto por institución, ordenando los cuatro casos.",
+      en: "The institutions voted on the exemplary use case to be presented at the November showcase. One vote per institution, ranking the four cases."
+    },
+    /* Resultados agregados. first..fourth: n.º de instituciones que situaron el caso en cada posición.
+       points: recuento Borda (1.º = 4 puntos, 2.º = 3, 3.º = 2, 4.º = 1). */
+    results: {
+      votes: 23,
+      winner: "ES-UC1",
+      items: [
+        { id: "ES-UC1", first: 14, second: 6, third: 2,  fourth: 1,  points: 79 },
+        { id: "ES-UC2", first: 3,  second: 8, third: 6,  fourth: 6,  points: 54 },
+        { id: "ES-UC3", first: 2,  second: 7, third: 11, fourth: 3,  points: 54 },
+        { id: "ES-UC4", first: 4,  second: 2, third: 4,  fourth: 13, points: 43 }
+      ],
+      note: {
+        es: "ES-UC2 y ES-UC3 empatan a puntos; en la comparación directa, 13 de las 23 instituciones sitúan ES-UC2 por delante de ES-UC3.",
+        en: "ES-UC2 and ES-UC3 are tied on points; head to head, 13 of the 23 institutions rank ES-UC2 above ES-UC3."
+      }
     }
   },
 

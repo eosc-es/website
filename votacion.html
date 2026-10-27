@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EOSC-ES · Votación de casos de uso</title>
+<style>.win td{font-weight:500;color:var(--strong)} .res td.n,.res th.n{text-align:right;font-variant-numeric:tabular-nums} .resnote{color:var(--muted);font-size:14px;margin-top:12px}</style>
 <meta name="description" content="Votación del caso de uso ejemplar del Nodo EOSC-ES / Vote on the exemplary use case of the EOSC-ES Node">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M13 7a9 9 0 1 0 0 18' fill='none' stroke='%23ff5b7f' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M19 25a9 9 0 1 0 0-18' fill='none' stroke='%23008691' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/roboto-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -34,6 +35,11 @@
   <section><div class="wrap">
     <div class="frame"><iframe id="vf" title="Votación de casos de uso · Nodo EOSC-ES" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     <p class="fallback" id="fb"></p>
+    <div id="results" hidden>
+      <h2 id="rh"></h2>
+      <div class="tablewrap"><table class="res"><thead><tr id="rth"></tr></thead><tbody id="rtb"></tbody></table></div>
+      <p class="resnote" id="rnote"></p>
+    </div>
   </div></section>
 </main>
 <footer><div class="wrap"><div class="eu"><div class="flag" aria-hidden="true"><svg viewBox="0 0 26 26"><g fill="#FFCC00" id="stars"></g></svg></div><div id="funding"></div></div></div></footer>
@@ -42,9 +48,9 @@
 (function(){
   "use strict";
   var D=window.EOSC_ES_STATUS, V=D.vote||{};
-  var T={es:{back:"← Estado del Nodo",h1:"Votación del caso de uso ejemplar",note:"El formulario está alojado en Google Apps Script y solo está disponible en español. Los votos se registran por institución; la página no muestra nombres ni correos de los votantes.",fb:"¿No se ve el formulario? Ábralo en una pestaña nueva:",closed:"La votación está cerrada.",brandSub:"Nodo español de la EOSC Federation",
+  var T={es:{back:"← Estado del Nodo",h1:"Votación del caso de uso ejemplar",note:"El formulario está alojado en Google Apps Script y solo está disponible en español. Los votos se registran por institución; la página no muestra nombres ni correos de los votantes.",fb:"¿No se ve el formulario? Ábralo en una pestaña nueva:",closed:"La votación está cerrada.",closedOn:"La votación se cerró el ",h1c:"Resultados de la votación del caso de uso ejemplar",rh:"Resultados",cols:["Caso de uso","1.º","2.º","3.º","4.º","Puntos"],votes:" instituciones votaron (una por institución). Puntos: recuento Borda (1.º = 4, 2.º = 3, 3.º = 2, 4.º = 1).",chosen:"Caso elegido para el showcase: ",brandSub:"Nodo español de la EOSC Federation",
       funding:"EOSC-ES-Prep se financia mediante las Cascading Grants del proyecto EOSC Gravity, que ha recibido financiación del programa Horizonte Europa de la Unión Europea en virtud del acuerdo de subvención n.º 101188045."},
-    en:{back:"← Node status",h1:"Vote on the exemplary use case",note:"The form is hosted on Google Apps Script and is available in Spanish only. Votes are recorded per institution; the page does not show voters' names or e-mails.",fb:"Can't see the form? Open it in a new tab:",closed:"The vote is closed.",brandSub:"Spanish Node of the EOSC Federation",
+    en:{back:"← Node status",h1:"Vote on the exemplary use case",note:"The form is hosted on Google Apps Script and is available in Spanish only. Votes are recorded per institution; the page does not show voters' names or e-mails.",fb:"Can't see the form? Open it in a new tab:",closed:"The vote is closed.",closedOn:"The vote closed on ",h1c:"Results of the vote on the exemplary use case",rh:"Results",cols:["Use case","1st","2nd","3rd","4th","Points"],votes:" institutions voted (one per institution). Points: Borda count (1st = 4, 2nd = 3, 3rd = 2, 4th = 1).",chosen:"Use case chosen for the showcase: ",brandSub:"Spanish Node of the EOSC Federation",
       funding:"EOSC-ES-Prep is funded within the Cascading Grants of the EOSC Gravity project, which has received funding from the European Union's Horizon Europe programme under Grant Agreement No. 101188045."}};
   var lang="es";
   try{var sv=localStorage.getItem("eoscEsLang"); if(sv==="es"||sv==="en") lang=sv; else lang=(navigator.language||"es").toLowerCase().indexOf("es")===0?"es":"en";}catch(e){}
@@ -60,7 +66,27 @@
     document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-lang")===lang);});
     var fb=document.getElementById("fb");
     if(V.open&&V.url){ fb.textContent=t.fb+" "; var a=document.createElement("a"); a.href=V.url; a.target="_blank"; a.rel="noopener"; a.textContent=V.url.replace(/^https:\/\//,"").slice(0,40)+"…"; fb.appendChild(a); }
-    else { fb.textContent=t.closed; document.querySelector(".frame").hidden=true; }
+    else {
+      document.querySelector(".frame").hidden=true;
+      var R=V.results, UC=D.usecases||[];
+      function uc(id){var u=UC.filter(function(x){return x.id===id;})[0]; return u?id+" · "+tx(u.title):id;}
+      function fd(d){var p=String(d).split("-"); return new Date(Date.UTC(+p[0],+p[1]-1,+p[2])).toLocaleDateString(lang==="es"?"es-ES":"en-GB",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"});}
+      fb.textContent = V.closed ? t.closedOn+fd(V.closed)+"." : t.closed;
+      if(R){
+        document.getElementById("h1").textContent=t.h1c;
+        document.getElementById("intro").textContent=tx(V.text)+" "+t.chosen+uc(R.winner)+".";
+        document.getElementById("rh").textContent=t.rh;
+        document.getElementById("rth").innerHTML=t.cols.map(function(c,i){return '<th'+(i?' class="n"':'')+'>'+c+'</th>';}).join("");
+        var tb=document.getElementById("rtb"); tb.innerHTML="";
+        R.items.slice().sort(function(a,b){return b.points-a.points;}).forEach(function(r){
+          var tr=document.createElement("tr"); if(r.id===R.winner) tr.className="win";
+          [uc(r.id),r.first,r.second,r.third,r.fourth,r.points].forEach(function(v,i){var td=document.createElement("td"); if(i) td.className="n"; td.textContent=v; tr.appendChild(td);});
+          tb.appendChild(tr);
+        });
+        document.getElementById("rnote").textContent=R.votes+t.votes+(R.note?" "+tx(R.note):"");
+        document.getElementById("results").hidden=false;
+      }
+    }
   }
   var vf=document.getElementById("vf"); if(V.open&&V.url) vf.src=V.url;
   var s="",i; for(i=0;i<12;i++){var a=i*Math.PI/6;s+='<circle cx="'+(13+8*Math.sin(a)).toFixed(2)+'" cy="'+(13-8*Math.cos(a)).toFixed(2)+'" r="1.2"/>';}
