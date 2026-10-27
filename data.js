@@ -16,7 +16,7 @@
  */
 window.EOSC_ES_STATUS = {
   meta: {
-    updated: "2026-10-27",
+    updated: "2026-10-28",
     project: "EOSC-ES-Prep",
     grant: "25-EOSC-GRV-PREP-010",
     coordinator: "IACS (Instituto Aragonés de Ciencias de la Salud)",
@@ -60,7 +60,7 @@ window.EOSC_ES_STATUS = {
     { date: "2026-09-28", status: "done", title: { es: "Versiones R1 del Project Charter (D2) y del plan del showcase (D3)", en: "R1 versions of the Project Charter (D2) and the showcase plan (D3)" } },
     { date: "2026-10-02", status: "done", title: { es: "Encuentro tripartito EOSC España en Zaragoza, con EOSC-A, la Comisión Europea y la delegada española en el EOSC Steering Board: gobernanza en tres pasos (MoU ligero, anexo técnico en la propuesta de nodo, acuerdo tipo JRU) y AAI como proxy de nodo sobre SIR/eduGAIN", en: "Spanish EOSC tripartite event in Zaragoza, with EOSC-A, the European Commission and the Spanish EOSC Steering Board delegate: three-step governance (light MoU, technical annex in the Node proposal, JRU-type agreement) and Node-level AAI proxy on SIR/eduGAIN" } },
     { date: "2026-10-27", status: "done", title: { es: "Votación del caso de uso ejemplar entre las instituciones: elegido ES-UC1 (EHDS, One Health)", en: "Vote on the exemplary use case among the institutions: ES-UC1 (EHDS, One Health) chosen" }, link: "votacion.html" },
-    { date: "2026-11", status: "planned", title: { es: "Showcase event (online), con el caso de uso elegido", en: "Showcase event (online), with the chosen use case" } },
+    { date: "2026-11-03", status: "planned", title: { es: "Showcase event de las Preparatory Grants de EOSC Gravity (online, 9:30–13:00): presentación de EOSC-ES con el caso de uso elegido, ES-UC1", en: "EOSC Gravity Preparatory Grants showcase event (online, 9:30–13:00 CET): EOSC-ES presentation with the chosen use case, ES-UC1" }, link: "docs/20260608_EOSC_Gravity_Preparatory_Showcase_event_agenda.pdf" },
     { date: "2026-12", status: "planned", title: { es: "Reunión tripartita en Dublín: criterios de la 3.ª ola", en: "Tripartite meeting in Dublin: third-wave criteria" } },
     { date: "2027-03-09", status: "planned", title: { es: "Apertura de la COFUND HORIZON-INFRA-2027-01-EOSC-01 (cierre 15/06/2027)", en: "HORIZON-INFRA-2027-01-EOSC-01 COFUND opens (closes 15/06/2027)" } }
   ],
@@ -108,6 +108,20 @@ window.EOSC_ES_STATUS = {
     { id: "FC-8/9", name: { es: "Pedidos / despliegue de aplicaciones", en: "Order Management / Application Deployment" }, level: "recommended", status: "pending", owner: "", inst: "", target: { es: "No comprometido", en: "Not committed" },
       basis: { es: "Candidato: Application Workload Manager (UPV).", en: "Candidate: Application Workload Manager (UPV)." } }
   ],
+
+  /* Aviso del showcase event (portada). show: false lo oculta */
+  showcase: {
+    show: true,
+    date: "2026-11-03",
+    time: "9:30 – 13:00 (CET)",
+    title: { es: "Showcase event de las Preparatory Grants de EOSC Gravity", en: "EOSC Gravity Preparatory Grants showcase event" },
+    text: {
+      es: "Evento online con paneles nacionales y temáticos de los proyectos preparatorios. EOSC-ES interviene en el segundo panel nacional (10:20 – 10:45) con el caso de uso elegido, ES-UC1. Los miembros del consorcio pueden asistir con el enlace de Zoom.",
+      en: "Online event with national and thematic panels of the preparatory projects. EOSC-ES presents in the second national panel (10:20 – 10:45) with the chosen use case, ES-UC1. Consortium members can attend through the Zoom link."
+    },
+    agenda: "docs/20260608_EOSC_Gravity_Preparatory_Showcase_event_agenda.pdf",
+    url: "https://us02web.zoom.us/j/81917222088"
+  },
 
   /* Votación del caso de uso ejemplar (página votacion.html) */
   vote: {
