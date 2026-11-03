@@ -24,7 +24,7 @@ Solo hay que editar `data.js` (se puede hacer desde la interfaz web de GitHub):
 - `roles`: al designar a una persona, rellenar `name` y cambiar `status` a `done`; el contador «roles designados» se actualiza solo. Lo mismo con `owner` en cada Federating Capability.
 - `deliverables[].pdf`: ruta al PDF dentro de `docs/`; si se rellena, aparece el enlace «PDF» junto al entregable.
 - `vote.open`: `true` muestra el aviso y el enlace a la votación; `false` muestra en el inicio el caso elegido y el enlace a los resultados, y `votacion.html` presenta la tabla de `vote.results` (votos por posición y puntos Borda) en lugar del formulario. `vote.url` es la URL `/exec` de la aplicación web de Apps Script (vacía una vez retirada).
-- `showcase`: aviso del showcase event en la portada (fecha, horario, texto, `agenda` = PDF en `docs/`, `url` = enlace de Zoom); `show: false` lo oculta tras el evento.
+- `showcase`: aviso del showcase event en la portada (fecha, horario, texto, `agenda` = PDF en `docs/`, `url` = enlace de Zoom, `slides` = PDF de la presentación en `docs/`); `show: false` lo oculta tras el evento.
 - `meta.contact` y `meta.repo`: si se rellenan, aparecen en el pie.
 
 Los contadores del resumen (entregables cerrados, criterios cumplidos, hitos completados) se calculan solos a partir de los estados.

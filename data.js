@@ -60,7 +60,7 @@ window.EOSC_ES_STATUS = {
     { date: "2026-09-28", status: "done", title: { es: "Versiones R1 del Project Charter (D2) y del plan del showcase (D3)", en: "R1 versions of the Project Charter (D2) and the showcase plan (D3)" } },
     { date: "2026-10-02", status: "done", title: { es: "Encuentro tripartito EOSC España en Zaragoza, con EOSC-A, la Comisión Europea y la delegada española en el EOSC Steering Board: gobernanza en tres pasos (MoU ligero, anexo técnico en la propuesta de nodo, acuerdo tipo JRU) y AAI como proxy de nodo sobre SIR/eduGAIN", en: "Spanish EOSC tripartite event in Zaragoza, with EOSC-A, the European Commission and the Spanish EOSC Steering Board delegate: three-step governance (light MoU, technical annex in the Node proposal, JRU-type agreement) and Node-level AAI proxy on SIR/eduGAIN" } },
     { date: "2026-10-27", status: "done", title: { es: "Votación del caso de uso ejemplar entre las instituciones: elegido ES-UC1 (EHDS, One Health)", en: "Vote on the exemplary use case among the institutions: ES-UC1 (EHDS, One Health) chosen" }, link: "votacion.html" },
-    { date: "2026-11-03", status: "done", title: { es: "Showcase event de las Preparatory Grants de EOSC Gravity (online): presentación de EOSC-ES con el caso de uso elegido, ES-UC1. El evento fue bien; se discutió la posibilidad de buscar un espacio de discusión para los Nodos que se van a preparar", en: "EOSC Gravity Preparatory Grants showcase event (online): EOSC-ES presentation with the chosen use case, ES-UC1. The event went well; the possibility of finding a discussion space for the Nodes in preparation was discussed" }, link: "docs/20260608_EOSC_Gravity_Preparatory_Showcase_event_agenda.pdf" },
+    { date: "2026-11-03", status: "done", title: { es: "Showcase event de las Preparatory Grants de EOSC Gravity (online): presentación del proyecto EOSC-ES-Prep (objetivos y resultados, casos de uso, lecciones aprendidas, sostenibilidad y próximos pasos). El evento fue bien; se discutió la posibilidad de buscar un espacio de discusión para los Nodos que se van a preparar", en: "EOSC Gravity Preparatory Grants showcase event (online): presentation of the EOSC-ES-Prep project (objectives and outputs, use cases, lessons learned, sustainability and next steps). The event went well; the possibility of finding a discussion space for the Nodes in preparation was discussed" }, link: "docs/D6_Showcase_Final_Presentation_EOSC_ES_Prep.pdf" },
     { date: "2026-12", status: "planned", title: { es: "Reunión tripartita en Dublín: criterios de la 3.ª ola", en: "Tripartite meeting in Dublin: third-wave criteria" } },
     { date: "2027-03-09", status: "planned", title: { es: "Apertura de la COFUND HORIZON-INFRA-2027-01-EOSC-01 (cierre 15/06/2027)", en: "HORIZON-INFRA-2027-01-EOSC-01 COFUND opens (closes 15/06/2027)" } }
   ],
@@ -116,11 +116,12 @@ window.EOSC_ES_STATUS = {
     time: "9:30 – 13:00 (CET)",
     title: { es: "Showcase event de las Preparatory Grants de EOSC Gravity", en: "EOSC Gravity Preparatory Grants showcase event" },
     text: {
-      es: "Celebrado. El evento fue bien: EOSC-ES presentó en el segundo panel nacional el caso de uso elegido, ES-UC1, y se discutieron las posibilidades de buscar un espacio de discusión para los Nodos que se van a preparar.",
-      en: "Held. The event went well: EOSC-ES presented the chosen use case, ES-UC1, in the second national panel, and the options for finding a discussion space for the Nodes in preparation were discussed."
+      es: "Celebrado. El evento fue bien: EOSC-ES presentó en el segundo panel nacional el proyecto completo (objetivos y resultados, casos de uso, lecciones aprendidas, sostenibilidad y próximos pasos) y se discutieron las posibilidades de buscar un espacio de discusión para los Nodos que se van a preparar.",
+      en: "Held. The event went well: EOSC-ES presented the whole project in the second national panel (objectives and outputs, use cases, lessons learned, sustainability and next steps), and the options for finding a discussion space for the Nodes in preparation were discussed."
     },
     agenda: "docs/20260608_EOSC_Gravity_Preparatory_Showcase_event_agenda.pdf",
-    url: ""
+    url: "",
+    slides: "docs/D6_Showcase_Final_Presentation_EOSC_ES_Prep.pdf"
   },
 
   /* Votación del caso de uso ejemplar (página votacion.html) */

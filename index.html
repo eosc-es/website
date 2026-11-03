@@ -36,7 +36,7 @@
 
 <main>
   <section id="overview"><div class="wrap">
-    <div class="card vote" id="showbox" hidden><p id="showtext"></p><div class="btns"><a class="btn" id="showjoin" target="_blank" rel="noopener" data-i18n="showJoin"></a> <a class="btn alt" id="showagenda" target="_blank" rel="noopener" data-i18n="showAgenda"></a></div></div>
+    <div class="card vote" id="showbox" hidden><p id="showtext"></p><div class="btns"><a class="btn" id="showjoin" target="_blank" rel="noopener" data-i18n="showJoin"></a> <a class="btn alt" id="showagenda" target="_blank" rel="noopener" data-i18n="showAgenda"></a> <a class="btn alt" id="showslides" target="_blank" rel="noopener" data-i18n="showSlides"></a></div></div>
     <div class="card"><div class="steps" id="steps"></div></div>
     <div class="kpis" id="kpis"></div>
   </div></section>
@@ -121,7 +121,7 @@
       prepLead:"Subvención preparatoria de EOSC Gravity para elaborar el Project Charter del Nodo y preparar la solicitud de enrolment.",
       deliverables:"Entregables",timeline:"Reuniones y eventos",next:"próximo",
       enrolTitle:"Preparación para el enrolment",enrolLead:"Criterios formales exigidos a un Nodo candidato y su estado actual.",
-      voteBtn:"Ir a la votación",voteNav:"Votación",voteResBtn:"Ver resultados",showJoin:"Unirse (Zoom)",showAgenda:"Agenda (PDF)",voteResNav:"Resultados de la votación",voteWin:"Votación cerrada. Caso de uso elegido: ",rolesTitle:"Roles del Nodo",rolesLead:"Los cinco roles que la EOSC Federation exige a cada Nodo.",tbd:"Por designar",
+      voteBtn:"Ir a la votación",voteNav:"Votación",voteResBtn:"Ver resultados",showJoin:"Unirse (Zoom)",showAgenda:"Agenda (PDF)",showSlides:"Presentación (PDF)",voteResNav:"Resultados de la votación",voteWin:"Votación cerrada. Caso de uso elegido: ",rolesTitle:"Roles del Nodo",rolesLead:"Los cinco roles que la EOSC Federation exige a cada Nodo.",tbd:"Por designar",
       fcTitle:"Federating Capabilities",fcLead:"Capacidades que el Nodo implementa para integrarse en la Federación. Plazos en meses desde el inicio del build-up (M1).",
       mandatory:"Obligatoria",mandatory2026:"Obligatoria desde 2026",recommended:"Recomendada",owner:"Responsable técnico",inst:"Institución",deadline:"Plazo",
       ucTitle:"Casos de uso",ucLead:"Cuatro casos inter-Nodo comprometidos para el build-up; dos se demuestran en M12 y dos en M18.",
@@ -139,7 +139,7 @@
       prepLead:"EOSC Gravity preparatory grant to draft the Node Project Charter and prepare the enrolment application.",
       deliverables:"Deliverables",timeline:"Meetings and events",next:"next",
       enrolTitle:"Enrolment readiness",enrolLead:"Formal criteria required from a candidate Node and their current status.",
-      voteBtn:"Go to the vote",voteNav:"Vote",voteResBtn:"See the results",showJoin:"Join (Zoom)",showAgenda:"Agenda (PDF)",voteResNav:"Vote results",voteWin:"Vote closed. Chosen use case: ",rolesTitle:"Node roles",rolesLead:"The five roles the EOSC Federation requires from every Node.",tbd:"TBD",
+      voteBtn:"Go to the vote",voteNav:"Vote",voteResBtn:"See the results",showJoin:"Join (Zoom)",showAgenda:"Agenda (PDF)",showSlides:"Slides (PDF)",voteResNav:"Vote results",voteWin:"Vote closed. Chosen use case: ",rolesTitle:"Node roles",rolesLead:"The five roles the EOSC Federation requires from every Node.",tbd:"TBD",
       fcTitle:"Federating Capabilities",fcLead:"Capabilities the Node implements to integrate with the Federation. Deadlines in months from the start of the build-up (M1).",
       mandatory:"Mandatory",mandatory2026:"Mandatory from 2026",recommended:"Recommended",owner:"Technical owner",inst:"Institution",deadline:"Target",
       ucTitle:"Use cases",ucLead:"Four inter-Node use cases committed for the build-up; two are demonstrated at M12 and two at M18.",
@@ -181,6 +181,7 @@
       var st=document.getElementById("showtext"); st.innerHTML='<b>'+esc(tx(S.title))+'</b> · '+esc(fmtDate(S.date))+', '+esc(S.time)+'<br>'+esc(tx(S.text));
       var sj=document.getElementById("showjoin"); sj.href=S.url||"#"; sj.hidden=!S.url;
       var sa=document.getElementById("showagenda"); sa.href=S.agenda||"#"; sa.hidden=!S.agenda;
+      var sp=document.getElementById("showslides"); sp.href=S.slides||"#"; sp.hidden=!S.slides;
     }
     var vb=document.getElementById("votebox"); vb.hidden=!D.vote;
     if(D.vote){
